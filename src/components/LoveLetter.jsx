@@ -1,29 +1,42 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 const LETTER_PARAGRAPHS = [
-  "My dearest love, on this very special day, I want you to know that you are the most wonderful person I have ever had the privilege of knowing. Every morning I wake up grateful that somehow, in this vast universe, our paths crossed.",
-  "You are my calm in the chaos. When everything feels like too much, just thinking about your smile makes everything lighter. You've given me a kind of happiness I didn't know existed before you.",
-  "The way you laugh at your own jokes before you even finish telling them. The way you get excited about little things. The way you care so deeply — not just for me, but for everyone around you. These are the things I fall in love with over and over again.",
-  "I know we don't always have it easy. Some days are hard. Some nights feel long. But I would walk through every single one of them with you. You are not just my partner — you are my home.",
-  "On your birthday, I want you to feel as loved as you make me feel every day. I hope this year brings you everything you deserve — joy, peace, adventure, and a ridiculous amount of good food. 😊",
-  "I love you. More than words. More than songs. More than this letter can hold. But I'll keep trying to show you, every day for the rest of my life.",
+  "Happy birthday, bebu 💜",
+
+  "I still can’t believe I got lucky enough to meet someone like you. Out of everyone in this world, somehow our paths crossed, and ever since then, my life honestly hasn’t been the same in the best way possible.",
+
+  "Even though we’re far from each other, you somehow make me feel loved and comforted every single day. There are moments where I wish I could just teleport beside you, hold your hand, hug you, or annoy you in person instead of through a screen. But even with all the distance between us, my feelings for you never changed even once.",
+
+  "You became such a huge part of my life without even trying. One message from you can instantly make my whole day better. Hearing your voice on call feels comforting to me now, like it’s something I never want to lose.",
+
+  "Some of my favorite moments with you are honestly the simplest ones — playing Heartopia together, playing Valorant, laughing at random nonsense, staying on call almost 24/7, and just spending time together even when we’re doing nothing. Those moments might seem small, but to me they mean everything.",
+
+ "I love the moments where we can just be ourselves together. Whether we’re teasing each other, talking about random things, playing games, or sitting quietly on call, those moments are the ones I always end up thinking about the most.",
+  "I know LDR isn’t easy. We’ll have difficult days, misunderstandings, and moments where we miss each other too much. But no matter what happens, I still choose you every single time, bebu. Always.",
+
+  "You’re not just my girlfriend to me. You’re my comfort, my favorite notification, my best friend, and the person I want beside me no matter where life takes us.",
+
+  "I hope today makes you feel extra loved because you deserve nothing less than that. I wish you happiness, peace, success, good health, and of course lots and lots of good food. 😊",
+
+  "I love you so much, JaiJai. More than words can properly explain. And no matter how far away we are from each other right now, I’ll keep loving you the same way I always have.",
 ]
 
-function LetterParagraph({ text, index }) {
+function LetterParagraph({ text }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
+
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-50px',
+  })
 
   return (
     <motion.p
       ref={ref}
-      className="font-playfair text-white/80 leading-relaxed text-base md:text-lg"
-      style={{ fontStyle: index === LETTER_PARAGRAPHS.length - 1 ? 'normal' : 'normal' }}
+      className="font-playfair text-white/80 leading-relaxed text-[15px] md:text-lg"
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: 0.1 }}
+      transition={{ duration: 0.8 }}
     >
       {text}
     </motion.p>
@@ -32,23 +45,28 @@ function LetterParagraph({ text, index }) {
 
 export default function LoveLetter() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px',
+  })
 
   return (
-    <section id="love-letter" className="py-24 px-4 relative">
-      {/* Section glow */}
+    <section id="love-letter" className="py-24 px-4 relative overflow-hidden">
+      {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 50%, rgba(232,82,122,0.06) 0%, transparent 70%)',
+          background:
+            'radial-gradient(circle at center, rgba(232,82,122,0.08) 0%, transparent 70%)',
         }}
       />
 
-      <div className="max-w-2xl mx-auto">
-        {/* Section header */}
+      <div className="max-w-3xl mx-auto relative z-10">
+        {/* Header */}
         <motion.div
           ref={ref}
-          className="text-center mb-12"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -56,76 +74,96 @@ export default function LoveLetter() {
           <p className="font-poppins text-rose-300 text-xs tracking-[0.4em] uppercase mb-3">
             ✉️ A Letter For You
           </p>
+
           <h2
             className="font-dancing text-5xl md:text-6xl"
             style={{
-              background: 'linear-gradient(135deg, #FFB7C5, #E8527A, #C9B1E8)',
+              background:
+                'linear-gradient(135deg, #FFB7C5, #E8527A, #C9B1E8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}
           >
-            My Love Letter
+            For My JaiJai 💜
           </h2>
         </motion.div>
 
-        {/* Letter card */}
+        {/* Letter */}
         <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1 }}
           className="relative"
-          initial={{ opacity: 0, y: 40, rotateX: 5 }}
-          animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-          transition={{ duration: 1, delay: 0.3 }}
         >
-          {/* Paper shadow layers */}
+          {/* Shadow layers */}
           <div
             className="absolute inset-0 rounded-3xl"
             style={{
               transform: 'translate(6px, 6px)',
               background: 'rgba(232,82,122,0.08)',
-              filter: 'blur(4px)',
+              filter: 'blur(6px)',
             }}
           />
+
           <div
             className="absolute inset-0 rounded-3xl"
             style={{
               transform: 'translate(3px, 3px)',
-              background: 'rgba(255,183,197,0.06)',
+              background: 'rgba(255,183,197,0.05)',
             }}
           />
 
-          {/* Main card */}
+          {/* Main Card */}
           <div
-            className="relative rounded-3xl p-8 md:p-12"
+            className="relative rounded-3xl pt-14 pb-8 px-7 md:px-12 md:pt-16 md:pb-12"
             style={{
               background: `
-                linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,183,197,0.05) 50%, rgba(201,177,232,0.06) 100%)
+                linear-gradient(
+                  135deg,
+                  rgba(255,255,255,0.08) 0%,
+                  rgba(255,183,197,0.05) 50%,
+                  rgba(201,177,232,0.06) 100%
+                )
               `,
               backdropFilter: 'blur(30px)',
               WebkitBackdropFilter: 'blur(30px)',
               border: '1px solid rgba(255,183,197,0.2)',
-              boxShadow: '0 8px 60px rgba(232,82,122,0.15), inset 0 1px 0 rgba(255,255,255,0.1)',
+              boxShadow:
+                '0 8px 60px rgba(232,82,122,0.15), inset 0 1px 0 rgba(255,255,255,0.1)',
             }}
           >
-            {/* Decorative corners */}
-            {['top-4 left-4', 'top-4 right-4', 'bottom-4 left-4', 'bottom-4 right-4'].map((pos, i) => (
-              <span key={i} className={`absolute ${pos} text-rose-300/30 text-lg pointer-events-none`}>
+            {/* Decorative flowers */}
+            {[
+              'top-4 left-4',
+              'top-4 right-4',
+              'bottom-4 left-4',
+              'bottom-4 right-4',
+            ].map((pos, i) => (
+              <span
+                key={i}
+                className={`absolute ${pos} text-rose-300/30 text-lg pointer-events-none`}
+              >
                 🌸
               </span>
             ))}
 
             {/* Greeting */}
             <motion.p
-              className="font-dancing text-3xl text-rose-300 mb-8"
+  className="font-dancing text-2xl md:text-3xl text-rose-300 mb-5 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.5 }}
             >
-              To my favorite person in the world,
+              To my bebu, JaiJai 💜 
             </motion.p>
 
             {/* Paragraphs */}
             <div className="space-y-5">
-              {LETTER_PARAGRAPHS.map((para, i) => (
-                <LetterParagraph key={i} text={para} index={i} />
+              {LETTER_PARAGRAPHS.map((para, index) => (
+                <LetterParagraph
+                  key={index}
+                  text={para}
+                />
               ))}
             </div>
 
@@ -134,18 +172,22 @@ export default function LoveLetter() {
               className="mt-10 text-right"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 1.5 }}
+              transition={{ delay: 1.2 }}
             >
-              <p className="font-poppins text-white/40 text-sm mb-1">With all my love,</p>
+              <p className="font-poppins text-white/40 text-sm mb-1">
+                Forever yours,
+              </p>
+
               <p
                 className="font-dancing text-4xl"
                 style={{
-                  background: 'linear-gradient(135deg, #E8527A, #9B72CF)',
+                  background:
+                    'linear-gradient(135deg, #E8527A, #9B72CF)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Yours, forever ❤️
+                Your Franky 💜 
               </p>
             </motion.div>
           </div>

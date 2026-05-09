@@ -2,11 +2,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaMusic, FaPause, FaPlay, FaVolumeUp, FaVolumeMute } from 'react-icons/fa'
 
-// NOTE: Place your romantic instrumental MP3 at /public/audio/romantic.mp3
-// You can use any royalty-free romantic piano music.
-// Free options: https://pixabay.com/music/search/romantic/
-// If no audio file, the player UI still renders beautifully.
-
 export default function MusicPlayer() {
   const audioRef = useRef(null)
   const [playing, setPlaying] = useState(false)
@@ -14,12 +9,27 @@ export default function MusicPlayer() {
   const [volume, setVolume] = useState(0.5)
   const [expanded, setExpanded] = useState(false)
   const [hasAudio, setHasAudio] = useState(true)
+  const [autoplayFailed, setAutoplayFailed] = useState(false)
 
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
+    
     audio.volume = volume
     audio.loop = true
+    
+    // Try to play with sound
+    const playPromise = audio.play()
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        setPlaying(true)
+        console.log('Audio playing with sound')
+      }).catch(e => {
+        console.log('Autoplay blocked by browser:', e)
+        setAutoplayFailed(true)
+        setPlaying(false)
+      })
+    }
 
     const handleError = () => setHasAudio(false)
     audio.addEventListener('error', handleError)
@@ -35,6 +45,7 @@ export default function MusicPlayer() {
   const togglePlay = async () => {
     const audio = audioRef.current
     if (!audio || !hasAudio) return
+    
     if (playing) {
       audio.pause()
       setPlaying(false)
@@ -42,16 +53,18 @@ export default function MusicPlayer() {
       try {
         await audio.play()
         setPlaying(true)
+        setAutoplayFailed(false)
       } catch (e) {
-        console.log('Audio autoplay blocked:', e)
+        console.log('Audio play blocked:', e)
       }
     }
   }
 
   const toggleMute = () => {
     if (audioRef.current) {
-      audioRef.current.muted = !muted
-      setMuted(!muted)
+      const newMuted = !muted
+      audioRef.current.muted = newMuted
+      setMuted(newMuted)
     }
   }
 
@@ -80,7 +93,6 @@ export default function MusicPlayer() {
                   transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
                 >
                   <div className="vinyl-grooves absolute inset-0 rounded-full" />
-                  {/* Center hole */}
                   <div
                     className="absolute rounded-full"
                     style={{
@@ -95,7 +107,7 @@ export default function MusicPlayer() {
                     Our Song 🎵
                   </p>
                   <p className="font-poppins text-white/40 text-xs truncate">
-                    Romantic Instrumental
+                    {autoplayFailed ? '⚠️ Tap play to start' : 'Romantic Instrumental'}
                   </p>
                 </div>
               </div>
@@ -123,8 +135,17 @@ export default function MusicPlayer() {
                   value={volume}
                   onChange={e => setVolume(Number(e.target.value))}
                   className="flex-1 h-1 rounded-full accent-pink-400 cursor-pointer"
+                  style={{
+                    background: 'linear-gradient(90deg, #E8527A, #9B72CF)',
+                  }}
                 />
               </div>
+
+              {autoplayFailed && (
+                <p className="font-poppins text-yellow-400/60 text-xs text-center">
+                  ⚡ Browser blocked autoplay. Click play to hear music.
+                </p>
+              )}
 
               {!hasAudio && (
                 <p className="font-poppins text-white/30 text-xs text-center">
@@ -138,7 +159,7 @@ export default function MusicPlayer() {
         {/* Toggle button */}
         <motion.button
           onClick={() => setExpanded(e => !e)}
-          className="w-14 h-14 rounded-full flex items-center justify-center shadow-2xl"
+          className="w-14 h-14 rounded-full flex items-center justify-center shadow-2xl relative"
           style={{
             background: 'linear-gradient(135deg, #E8527A, #9B72CF)',
             boxShadow: playing
@@ -151,6 +172,15 @@ export default function MusicPlayer() {
           transition={playing ? { duration: 1.4, repeat: Infinity } : {}}
         >
           <FaMusic size={20} color="#fff" />
+          {autoplayFailed && !playing && (
+            <motion.span
+              className="absolute -top-1 -right-1 text-[10px] bg-red-500 rounded-full px-1"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1, repeat: Infinity }}
+            >
+              ⚠️
+            </motion.span>
+          )}
         </motion.button>
       </div>
     </>

@@ -166,7 +166,7 @@ export default function FinalSurprise() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
         >
-          Every day, every moment, every breath — you.
+          Every day, every moment, every breath.
         </motion.p>
 
         {/* The button */}
@@ -218,7 +218,7 @@ export default function FinalSurprise() {
                 }}
                 transition={{ duration: 1.4, repeat: Infinity }}
               >
-                ❤️
+                💜
               </motion.div>
 
               {showFinal && (
@@ -239,7 +239,7 @@ export default function FinalSurprise() {
                     I love you endlessly ❤️
                   </p>
                   <p className="font-playfair text-white/60 text-lg italic mb-8">
-                    Happy Birthday, my love. You deserve the entire universe. 🌙✨
+                    Happy Birthday, my bebu. You deserve the entire universe. 🌙✨
                   </p>
 
                   <motion.button

@@ -2,14 +2,69 @@ import React, { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const REASONS = [
-  { front: '💕', frontText: 'Reason #1', back: 'The way you laugh', backText: "Your laugh is the best sound in the world. Genuine, full, and contagious — it makes every room brighter." },
-  { front: '🌸', frontText: 'Reason #2', back: 'Your kindness', backText: "You care so deeply about others. It's rare and beautiful — the way you make people feel seen and valued." },
-  { front: '✨', frontText: 'Reason #3', back: 'Your resilience', backText: "You've been through so much, yet you keep going. Your strength inspires me every single day." },
-  { front: '🌙', frontText: 'Reason #4', back: 'Late night you', backText: "When you're tired and soft and just yourself — that's my favorite version of you. No performance, just real." },
-  { front: '🎀', frontText: 'Reason #5', back: 'How you love', backText: "You love hard and you love deep. Being on the receiving end of that love is the greatest gift." },
-  { front: '🌹', frontText: 'Reason #6', back: 'Your passion', backText: "The way your eyes light up when you talk about the things you care about — I could watch that forever." },
-  { front: '💝', frontText: 'Reason #7', back: "You're my peace", backText: "In a world of noise and chaos, you are my quiet place. Being with you feels like coming home." },
-  { front: '🫶', frontText: 'Reason #8', back: 'Everything else', backText: "Honestly? I love you because you're you. Every flaw, every quirk, every wonderful imperfect piece of you." },
+  {
+    front: '🎮',
+    frontText: 'Reason #1',
+    back: 'Gaming with you',
+    backText:
+      "Playing Heartopia and Valorant with you will always be some of my favorite memories. Even simple games become special because I'm with you.",
+  },
+
+  {
+    front: '📞',
+    frontText: 'Reason #2',
+    back: 'Our calls',
+    backText:
+      "We literally stay on call almost 24/7 and somehow I still never get tired of hearing your voice. You became part of my everyday life.",
+  },
+
+  {
+    front: '💕',
+    frontText: 'Reason #3',
+    back: 'The way you love',
+    backText:
+      "You love so genuinely and deeply. Even from far away, you always make me feel cared for, appreciated, and safe.",
+  },
+
+  {
+    front: '😂',
+    frontText: 'Reason #4',
+    back: 'Your laugh',
+    backText:
+      "Your laugh is honestly one of my favorite sounds ever. Especially when you laugh so hard you can barely finish your sentence.",
+  },
+
+  {
+    front: '🌸',
+    frontText: 'Reason #5',
+    back: 'Your soft side',
+    backText:
+      "My favorite moments are the quiet ones with you late night talks, random silence on call, and just existing together comfortably.",
+  },
+
+  {
+    front: '✨',
+    frontText: 'Reason #6',
+    back: 'You understand me',
+    backText:
+      "You understand me in a way most people never could. Even on bad days, you somehow know how to make things feel lighter.",
+  },
+
+  {
+    front: '🫶',
+    frontText: 'Reason #7',
+    back: 'You choose us',
+    backText:
+      "LDR isn’t easy, but you still stay, still try, and still choose us every day. That means more to me than words can explain.",
+  },
+
+  {
+    front: '❤️',
+    frontText: 'Reason #8',
+    back: 'Simply you',
+    backText:
+      "At the end of the day, I just love you for being you, Jeallaine. Your personality, your energy, your flaws, your little habits  all of it.",
+  },
 ]
 
 function Card({ item, index }) {

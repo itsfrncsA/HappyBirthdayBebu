@@ -3,52 +3,74 @@ import { motion, useInView } from 'framer-motion'
 
 const MILESTONES = [
   {
-    emoji: '💬',
-    date: 'Day One',
-    title: 'Our First Chat',
-    desc: 'A simple message that changed everything. You replied, and I smiled for the rest of the day without knowing why.',
+    emoji: '🎬',
+    date: 'How It Started',
+    title: 'One Random Recommendation',
+
+desc:
+  "Who knew a simple movie recommendation would lead me to meeting someone as special as you? Looking back now, that small conversation was the start of everything between us.",
     color: '#FFB7C5',
     rotate: -2,
   },
+
   {
-    emoji: '🌸',
-    date: 'Not Long After',
-    title: 'Our First Date',
-    desc: 'Nervous hands, bright eyes, and a conversation that felt like it could last forever. I never wanted it to end.',
+    emoji: '⛈️',
+    date: 'That Stormy Day',
+    title: 'Checking On You',
+    desc:
+      "There was a storm heading to Cebu, and I remember asking if you were okay. After that, we just kept talking every day like we had already known each other for so long.",
     color: '#C9B1E8',
     rotate: 2,
   },
+
   {
-    emoji: '🌙',
-    date: 'Those Nights',
-    title: 'Late Night Calls',
-    desc: "3 AM and we were still talking. We'd lose track of time completely. Those were some of the best moments of my life.",
+    emoji: '📞',
+    date: 'Soon After',
+    title: '24/7 Calls',
+    desc:
+      "Our conversations slowly turned into staying on call almost all the time. Your voice became something I looked forward to every single day.",
     color: '#A8D8EA',
     rotate: -1.5,
   },
+
   {
-    emoji: '🌧️',
-    date: 'The Hard Days',
-    title: 'Random Fights',
-    desc: "We weren't perfect. We argued, we got quiet, we got scared. But we always came back to each other. Always.",
+    emoji: '🎮',
+    date: 'Our Bonding',
+    title: 'Gaming Together',
+    desc:
+      "Heartopia, Valorant, random chaos, laughing at nothing some of my happiest memories are just us spending time together online.",
     color: '#FFE4B5',
     rotate: 1.5,
   },
+
   {
-    emoji: '💪',
-    date: 'Every Day After',
-    title: 'Staying Together',
-    desc: "Because we chose each other — not just on the good days, but on the hard ones too. That's what makes us real.",
+    emoji: '✈️',
+    date: 'Finally Meeting',
+    title: 'Seeing You In Cebu',
+    desc:
+      "Finally seeing you in person in Cebu felt unreal. After all the calls and messages, being beside you for real was something I’ll never forget.",
     color: '#B5EAD7',
     rotate: -2,
   },
+
+  {
+    emoji: '💋',
+    date: 'A Core Memory',
+    title: 'Our First Kiss',
+    desc:
+      "I still can’t forget our first kiss on the bus. Everything about that moment felt so genuine and special, and honestly, I replay it in my head all the time.",
+    color: '#FFD6E0',
+    rotate: 1.5,
+  },
+
   {
     emoji: '❤️',
-    date: 'Right Now',
-    title: 'Still Us',
-    desc: 'Here we are. Still laughing, still growing, still choosing each other. And I would do it all over again in a heartbeat.',
+    date: 'February 20, 2026',
+    title: 'Officially Yours',
+    desc:
+      "The day I became your boyfriend will always be one of the most special days of my life. Out of every moment we’ve shared, this is one I’ll never forget.",
     color: '#FFB7C5',
-    rotate: 2,
+    rotate: -2,
   },
 ]
 

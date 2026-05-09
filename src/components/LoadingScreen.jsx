@@ -246,7 +246,7 @@ function BirthdayLoader() {
             animate={{ scale: [1, 1.25, 1, 1.25, 1] }}
             transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            💖
+            💜
           </motion.div>
           <motion.div
             className="absolute inset-0 rounded-full"
