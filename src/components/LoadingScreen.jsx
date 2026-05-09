@@ -186,15 +186,25 @@ function LockedGate() {
 
 // ── Birthday loader (May 11 only) ─────────────────────────────────────────────
 
-function BirthdayLoader() {
+function BirthdayLoader({ onComplete }) {
   const [phase, setPhase] = useState(0)
   const [dots,  setDots]  = useState('')
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase(1), 600)
     const t2 = setTimeout(() => setPhase(2), 2800)
-    return () => { clearTimeout(t1); clearTimeout(t2) }
-  }, [])
+    
+    // After 3.5 seconds (when loader finishes), call onComplete to show the site
+    const t3 = setTimeout(() => {
+      if (onComplete) onComplete()
+    }, 3500)
+    
+    return () => { 
+      clearTimeout(t1)
+      clearTimeout(t2)
+      clearTimeout(t3)
+    }
+  }, [onComplete])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -308,7 +318,7 @@ function BirthdayLoader() {
 
 // ── Exported component: gates by date ────────────────────────────────────────
 
-export default function LoadingScreen() {
+export default function LoadingScreen({ onComplete }) {
   // Developer bypass
   const params = new URLSearchParams(window.location.search)
 
@@ -316,11 +326,11 @@ export default function LoadingScreen() {
     window.location.hostname === "localhost" ||
     params.get("dev") === "francis"
 
-  // If not May 11 and no bypass → locked
+  // If not May 11 and no bypass → locked (stays forever)
   if (!isMay11() && !bypass) {
     return <LockedGate />
   }
 
-  // Otherwise show the birthday loader
-  return <BirthdayLoader />
+  // Otherwise show the birthday loader and pass onComplete
+  return <BirthdayLoader onComplete={onComplete} />
 }
