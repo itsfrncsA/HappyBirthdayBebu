@@ -309,6 +309,18 @@ function BirthdayLoader() {
 // ── Exported component: gates by date ────────────────────────────────────────
 
 export default function LoadingScreen() {
-  if (!isMay11()) return <LockedGate />
+  // Developer bypass
+  const params = new URLSearchParams(window.location.search)
+
+  const bypass =
+    window.location.hostname === "localhost" ||
+    params.get("dev") === "francis"
+
+  // If not May 11 and no bypass → locked
+  if (!isMay11() && !bypass) {
+    return <LockedGate />
+  }
+
+  // Otherwise show the birthday loader
   return <BirthdayLoader />
 }
