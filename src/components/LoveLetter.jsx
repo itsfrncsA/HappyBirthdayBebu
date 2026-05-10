@@ -10,7 +10,7 @@ const LETTER_PARAGRAPHS = [
 
   "You became such a huge part of my life without even trying. One message from you can instantly make my whole day better. Hearing your voice on call feels comforting to me now, like it’s something I never want to lose.",
 
-  "Some of my favorite moments with you are honestly the simplest ones — playing Heartopia together, playing Valorant, laughing at random nonsense, staying on call almost 24/7, and just spending time together even when we’re doing nothing. Those moments might seem small, but to me they mean everything.",
+  "Some of my favorite moments with you are honestly the simplest ones  playing Heartopia together, playing Valorant, laughing at random nonsense, staying on call almost 24/7, and just spending time together even when we’re doing nothing. Those moments might seem small, but to me they mean everything.",
 
  "I love the moments where we can just be ourselves together. Whether we’re teasing each other, talking about random things, playing games, or sitting quietly on call, those moments are the ones I always end up thinking about the most.",
   "I know LDR isn’t easy. We’ll have difficult days, misunderstandings, and moments where we miss each other too much. But no matter what happens, I still choose you every single time, bebu. Always.",
