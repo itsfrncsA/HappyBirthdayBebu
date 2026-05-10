@@ -29,9 +29,11 @@ const REASONS = [
   {
     front: '😂',
     frontText: 'Reason #4',
-    back: 'Your laugh',
-    backText:
-      "Your laugh is honestly one of my favorite sounds ever. Especially when you laugh so hard you can barely finish your sentence.",
+    front: '🎮',
+frontText: 'Reason #4',
+back: 'Time with you',
+backText:
+  "Honestly, I just love spending time with you. Whether we’re playing games, staying on call, or talking about random things, it never feels boring when it’s with you.",
   },
 
   {
